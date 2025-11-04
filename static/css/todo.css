@@ -1,11 +1,12 @@
 /* ================== CONTAINER ================== */
 .todo_container {
     width: 90%;
-    min-height: 86vh;
+    min-height: 80.9vh;
     height: auto;
     border-radius: 20px;
     text-align: center;
-    background-color: #e6f9e6;   /* soft pastel green */
+    background-image: url('/static/images/header.jpeg');
+    background-size: 100% 100%;
     padding: 20px;
     margin: 0 auto;
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
@@ -21,7 +22,7 @@
 /* ================== ADD BUTTON ================== */
 .add_button {
     padding: 10px 20px;
-    background: linear-gradient(135deg, #4f46e5, #6b5ce7);
+    background: linear-gradient(135deg, #eb913d, #f3a570);
     color: white;
     border: none;
     border-radius: 6px;
@@ -33,7 +34,7 @@
 }
 
 .add_button:hover {
-    background: linear-gradient(135deg, #4338ca, #5b4ad1);
+    background: linear-gradient(135deg, #b65c07, #dd8347);     
     transform: translateY(-2px);
 }
 
@@ -53,7 +54,7 @@
 
 /* Header row */
 .task_table th {
-    background: #4f46e5;            
+    background-color: orange;          
     color: white;
     padding: 12px;
     text-align: center;
@@ -88,8 +89,8 @@
 }
 
 .task_table select:hover {
-    border-color: #4f46e5;
-    box-shadow: 0 0 5px rgba(79,70,229,0.3);
+    border-color: orange;
+    box-shadow: 0 0 5px rgba(229, 70, 70, 0.3);
 }
 
 /* ================== DELETE BUTTON ================== */
@@ -169,14 +170,14 @@
 
 .task_form textarea:focus,
 .task_form input[type="date"]:focus {
-    border-color: #4f46e5;
-    box-shadow: 0 0 6px rgba(79,70,229,0.4);
+    border-color: orange;
+    box-shadow: 0 0 6px rgba(220, 65, 65, 0.4);
 }
 
 /* Submit Button */
 #submit_task {
     padding: 12px 20px;
-    background: linear-gradient(135deg, #4f46e5, #6b5ce7);
+    background: linear-gradient(135deg, #eb913d, #f3a570);
     color: white;
     border: none;
     border-radius: 8px;
@@ -188,7 +189,7 @@
 }
 
 #submit_task:hover {
-    background: linear-gradient(135deg, #4338ca, #5b4ad1);
+    background: linear-gradient(135deg, #b35b08, #da8954);
     transform: translateY(-2px);
 }
 

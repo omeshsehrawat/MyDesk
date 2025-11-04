@@ -5,7 +5,7 @@
     left: 0px;
     top: 0px;
     position: fixed;
-    background-color: #333;
+    background-image: url('/static/images/cardbgImage.jpg');
     overflow-x: hidden;
     transition: 0.3s;
     padding-top: 60px;
@@ -21,7 +21,8 @@
 }
 
 .sidebar a:hover {
-    background-color: #575757;
+    background-color: white;
+    color: black;
 }
 
 .openbtn {

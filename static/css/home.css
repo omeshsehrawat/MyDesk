@@ -1,3 +1,7 @@
+header{
+    width: 97.8vw;
+}
+
 .different-task{
     padding: 20px;
     border-radius: 10px;
@@ -7,8 +11,10 @@
 }
 
 img{
-    height: 300px;
-    width: 500px;
+    height: 171px;
+    width: 300px;
+    border-radius: 20px;
+    /* padding-left: 100px; */
 }
 
 .card{
@@ -16,8 +22,13 @@ img{
     border: 5px solid black;
     border-radius: 10px;
     padding: 20px;
-    background-color: burlywood;
+    background-image: url('/static/images/cardbgImage.jpg');
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .content{
@@ -33,13 +44,13 @@ img{
 
 .content p{
     font-size: 20px;
-    color: darkslategray;
+    color: black;
     margin-bottom: 10px;
 }
 
 .content a{
     text-decoration: none;
-    color: darkblue;
+    color: red;
     font-weight: bold;
 }
 
@@ -54,7 +65,7 @@ img{
 }
 
 .content button:hover{
-    background-color: blue;
+    background-color: red;
     color: white;
     transform: translateY(-2px);
     transition: 0.3s;

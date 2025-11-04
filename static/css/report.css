@@ -1,11 +1,12 @@
 /* =============== REPORT PAGE =============== */
 .report_container{
     width: 90%;
-    min-height: 86vh;
+    min-height: 80.9vh;
     height: auto;
     border-radius: 20px;
     text-align: center;
-    background-color: #e6f9e6;
+    background-image: url('/static/images/header.jpeg');
+    background-size: 100% 100%;
     padding: 20px;
     margin: 0 auto;
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
@@ -39,15 +40,15 @@
 /* =================== INPUT FIELDS ================== */
 #startDate, #endDate{
     font-size: 18px;
-    border: 2px solid #4f46e5;
+    border: 2px solid orange;
     border-radius: 6px;
     padding: 5px;
 }
 
 /* =================== GENERATE REPORT BUTTON ================== */
-#generateReport{
+#generateReport, #downloadBtn{
     padding: 10px 20px;
-    background: linear-gradient(135deg, #4f46e5, #6b5ce7);
+    background: linear-gradient(135deg, #eb913d, #f3a570);
     color: white;
     border: none;
     border-radius: 6px;
@@ -58,10 +59,17 @@
     transition: 0.3s;
 }
 
-#generateReport:hover{
-    background: linear-gradient(135deg, #4338ca, #5b4ad1);
+#generateReport:hover, #downloadBtn:hover{
+    background: linear-gradient(135deg, #c16107, #dd8a52);
     transform: translateY(-2px);
 }
+
+#downloadBtn{
+    margin: 10px auto;
+    display: none;
+}
+
+
 
 /* =================== REPORT TABLE ================== */
 #reportTable {
@@ -78,7 +86,7 @@
 
 /* Header row */
 #reportTable th {
-    background: #4f46e5;            
+    background: orange;            
     color: white;
     padding: 12px;
     text-align: center;
@@ -128,3 +136,44 @@
 #reportTable tbody tr:hover {
     background-color: #d1e7ff; /* light blue on hover */
 }
+
+#downloadOptions{
+    margin-top: 10px;
+    display: none;
+}
+
+#downloadOptions button {
+    margin: 5px;
+    padding: 8px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+    background: linear-gradient(135deg, #eb913d, #f3a570);
+    color: white;
+    transition: 0.3s;
+}
+
+#downloadOptions button:hover {
+    background: linear-gradient(135deg, #b85d07, #c57b4a);
+}
+
+
+/* chart part */
+#chartWrapper{
+    width: 40px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#reportChart{
+    display: none;
+    margin: 30px auto;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+} 

@@ -12,6 +12,7 @@ function addTaskFunction(e) {
     .then(res => res.json())
     .then(data => {
         console.log(data.message);
+        alert("Task added successfully!");
         loadTasks();
     })
     .catch(err => console.error("Error adding task:", err));
@@ -35,8 +36,6 @@ function loadTasks() {
             } else if (row[4] === "done") {
                 tr.style.backgroundColor = "#bbf7d0";   // light green
             }
-
-
 
             tr.innerHTML = `
                 <td>${index + 1}</td>
@@ -64,6 +63,7 @@ function deleteTask(sr_no) {
     .then(res => res.json())
     .then(data => {
         console.log(data.message);
+        alert("Task deleted successfully!");
         loadTasks();
     })
     .catch(err => console.error("Error deleting task:", err));
@@ -98,7 +98,5 @@ function taskFormPopup() {
 function closeForm() {
     document.getElementById("taskForm").style.display = "none";
 }
-
-
 
 window.onload = loadTasks;

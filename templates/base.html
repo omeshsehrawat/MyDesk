@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Use Website</title>
     <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/websiteIcon.png') }}">
 </head>
 <body>
     <div>
-        <header>Welcome To Daily Use Website</header>
+        <header>
+            Welcome To MyDesk
+            <img src="{{ url_for('static', filename='images/profile.jpeg') }}" alt="User Profile" id="profile-pic" title="{{ session['username'] }}">
+            <a href="{{ url_for('logout') }}" id="logoutopt">Logout</a>
+        </header>
     </div>
 
     <div class="container">

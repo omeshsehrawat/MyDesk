@@ -22,8 +22,27 @@
         </form>
         <hr>
         <div id="tableWrapper" style="border-radius:10px; overflow:hidden;"></div>
+
+        <div id="chartWrapper" style="width:80%; margin: 20px auto;">
+            <canvas id="reportChart"></canvas>
+        </div>
+
+        <button id="downloadBtn" onclick="showDownloadOptions()">Download Report</button>
+        <div id="downloadOptions">
+            <button onclick="downloadCSV()">CSV</button>
+            <button onclick="downloadPDF()">PDF</button>
+        </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/report.js') }}"></script>
+    <!-- jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-{% endblock %}
+    <!-- jsPDF autoTable plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+    <script src="{{ url_for('static', filename='js/report.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
+ {% endblock %}

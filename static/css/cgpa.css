@@ -1,11 +1,12 @@
 /* ============== CONTAINER ================= */
 .cgpa_container{
     width: 90%;
-    min-height: 90vh;
+    min-height: 80.9vh;
     height: auto;
     border-radius: 20px;
     text-align: center;
-    background-color: #e6f9e6;
+    background-image: url('/static/images/header.jpeg');
+    background-size: 100% 100%;
     padding: 20px;
     margin: 0 auto;
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
@@ -40,7 +41,7 @@
     font-size: 18px;
     text-align: center;
     margin-left: 10px;
-    border: 2px solid #4f46e5;
+    border: 2px solid orange;
     border-radius: 6px;
     padding: 5px;
 }
@@ -48,7 +49,7 @@
 .subject input, .subject select{
     font-size: 20px;
     margin-left: 10px;
-    border: 2px solid #4f46e5;
+    border: 2px solid orange;
     border-radius: 6px;
     padding: 5px;
 }
@@ -63,7 +64,7 @@
     font-size: 18px;
     text-align: center;
     margin-left: 10px;
-    border: 2px solid #4f46e5;
+    border: 2px solid orange;
     border-radius: 6px;
     padding: 5px;
 }
@@ -71,7 +72,7 @@
 /* ============== BUTTONS ================= */
 #generateButton{
     padding: 10px 20px;
-    background: linear-gradient(135deg, #4cbf2c, #c3be26);
+    background: linear-gradient(135deg, #eb913d, #f3a570);
     color: white;
     border: none;
     border-radius: 6px;
@@ -87,7 +88,7 @@
     display: none; 
     margin: 20px auto;   
     padding: 10px 20px;
-    background: linear-gradient(135deg, #4f46e5, #6b5ce7);
+    background: linear-gradient(135deg, #eb913d, #f3a570);
     color: white;
     border: none;
     border-radius: 6px;
@@ -97,15 +98,15 @@
     transition: 0.3s;
 }
 
-#calculateSGPA:hover, #generateButton:hover, #generateCGPA:hover, #resetButton:hover, #yes:hover, #no:hover {
-    background: linear-gradient(135deg, #ac31a0, #f778e4);
+#calculateSGPA:hover, #generateButton:hover, #generateCGPA:hover, #resetButton:hover {
+    background: linear-gradient(135deg, #ac5605, #dd854b);
     transform: translateY(-2px);
 }
 
 #generateCGPA, #yes, #no {
     margin: 20px auto;   
     padding: 10px 20px;
-    background: linear-gradient(135deg, #e55ce8, #fe8ff7);
+    background: linear-gradient(135deg, #eb913d, #f3a570);
     color: white;
     border: none;
     border-radius: 6px;
@@ -116,11 +117,6 @@
     
 }
 
-#calculateSGPA{
-    background: linear-gradient(135deg, #4ac9da, #7da1f4);     
-}
-
-
 #yes{
     background: linear-gradient(135deg, #30ca51, #34ee0f);    
 }
@@ -129,8 +125,12 @@
     background: linear-gradient(135deg, #ee060a, #c20404);  
 }
 
-#resetButton {
-    background: linear-gradient(135deg, #e12a27, #e18222);
+#yes:hover {
+    background: linear-gradient(135deg, #0cae2f, #4ddb31);        
+}
+
+#no:hover {
+    background: linear-gradient(135deg, #a30507, #e13939);  
 }
 
 #choose{

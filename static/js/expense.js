@@ -13,6 +13,7 @@ function addExpenseFunction(e){
     .then(res => res.json())
     .then(data => {
         console.log(data.message);
+        alert("Expense added successfully!");
         loadExpense();
     })
     .catch(err => console.error("Error adding expense:", err));
@@ -44,9 +45,9 @@ function loadExpense(){
             `;
             // Apply alternate background color
             if (index % 2 === 0) {
-                tr.style.backgroundColor = "#9cfefcff"; // white
+                tr.style.backgroundColor = "#ffffffff"; // white
             } else {
-                tr.style.backgroundColor = "#baf7a4ff"; // light gray
+                tr.style.backgroundColor = "#dadbd9ff"; // light gray
             }
             tbody.appendChild(tr);
         });
@@ -59,6 +60,7 @@ function deleteExpense(sr_no){
     .then(res => res.json())
     .then(data => {
         console.log(data.message);
+        alert("Expense deleted successfully!");
         loadExpense();
     })
     .catch(err => console.error("Error deleting expense:", err));
