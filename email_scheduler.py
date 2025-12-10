@@ -2,7 +2,7 @@ from flask_mail import Mail, Message
 from apscheduler.schedulers.background import BackgroundScheduler
 import todo_database
 import datetime
-import registartion_database
+import registration_database
 
 mail = None
 flask_app = None
@@ -48,7 +48,7 @@ def send_pending_tasks_email(user):
         send_email("⏰ Pending Tasks Reminder", body, [user['email']])
 
 def send_all_users_pending():
-    users = registartion_database.get_all_users()
+    users = registration_database.get_all_users()
     for user in users:
         send_new_task_email(user)
 
