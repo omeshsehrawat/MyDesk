@@ -24,7 +24,7 @@ def send_new_task_email(task, deadline, recipients):
 def send_registration_email(to_email, username, password=None):
     msg = Message(subject="Welcome to Daily Use App",
                   recipients=[to_email])
-    body = f"Hello {username},\n\nWelcom to Daily Use App!"
+    body = f"Hello {username},\n\nWelcome to Daily Use App!"
 
     if password:
         body += f"\nYour password is: {password}"

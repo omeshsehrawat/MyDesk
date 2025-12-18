@@ -57,7 +57,7 @@ def register():
                 email, username, password
             )
             return jsonify({"success": True,
-                            "message": "Registration SUccessful"})
+                            "message": "Registration Successful"})
         else:
             return jsonify({
                 "success": False,
@@ -72,7 +72,7 @@ def login_user():
         email = data.get('email')
         password = data.get('password')
 
-        print("LOGIN EMAIL:", email)
+        # print("LOGIN EMAIL:", email)
     
     else:
         email = request.args.get('email')
@@ -80,7 +80,7 @@ def login_user():
 
     user = registration_database.get_user_by_email(email)
 
-    print("SUPABASE USER:", user)
+    # print("SUPABASE USER:", user)
 
     if user and check_password_hash(user["password"], password):
         session["user_id"] = user["id"]

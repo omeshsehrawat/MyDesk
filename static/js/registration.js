@@ -1,4 +1,4 @@
-document.getElementById("registrationButton").addEventListener("click", function(e){
+document.getElementById("registrationForm").addEventListener("submit", function(e){
     e.preventDefault();
     const email = document.getElementById('email').value;
     const username = document.getElementById('username').value;
