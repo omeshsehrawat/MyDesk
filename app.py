@@ -26,7 +26,7 @@ app.config['MAIL_DEFAULT_SENDER'] = app.config['MAIL_USERNAME']
 
 mail = Mail(app)
 email_scheduler.mail = mail
-# email_scheduler.start_scheduler(app)
+email_scheduler.start_scheduler(app)
 
 # ---------------- AUTH ---------------- #
 
@@ -139,7 +139,7 @@ def add_task():
 
     data = request.get_json()
 
-    todo_database.add_task(
+    new_task = todo_database.add_task(
         data["task"],
         data["myDate"],
         session["user_id"]
@@ -151,7 +151,10 @@ def add_task():
         [session["email"]]
     )
 
-    return jsonify({"message": "Task Added"})
+    return jsonify({
+        "message": "Task Added",
+        "task": new_task
+        })
 
 
 @app.route("/delete/<int:sr_no>", methods=["DELETE"])

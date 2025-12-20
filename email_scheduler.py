@@ -57,20 +57,20 @@ def send_all_users_pending():
     for user in users:
         send_new_task_email(user)
 
-# def start_scheduler(app):
-#     global flask_app
-#     flask_app = app 
+def start_scheduler(app):
+    global flask_app
+    flask_app = app 
 
-#     scheduler = BackgroundScheduler()
+    scheduler = BackgroundScheduler()
 
-#     reminder_hours = [8, 20]
+    reminder_hours = [8, 20]
 
-#     for hour in reminder_hours:
-#         scheduler.add_job(
-#             send_all_users_pending, 'cron',
-#             hour = hour, minute=0
-#         )
+    for hour in reminder_hours:
+        scheduler.add_job(
+            send_all_users_pending, 'cron',
+            hour = hour, minute=0
+        )
     
-#     scheduler.start()
-#     return scheduler
+    scheduler.start()
+    return scheduler
 
