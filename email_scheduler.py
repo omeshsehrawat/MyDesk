@@ -15,9 +15,14 @@ def send_email(subject, body, recipients):
         mail.send(msg)
 
 def send_new_task_email(task, deadline, recipients):
+    message = (
+        f"You added a new task: '{task}' \n"
+        f"Deadline: {deadline} \n"
+        "Please complete it on time"
+    )
     send_email(
         "✅ New Task Added",
-        f"You added a new task: \'{task}\' with deadline {deadline}\\n\\nPlease complete it on time.",
+        message,
         recipients
     )
     
@@ -52,20 +57,20 @@ def send_all_users_pending():
     for user in users:
         send_new_task_email(user)
 
-def start_scheduler(app):
-    global flask_app
-    flask_app = app 
+# def start_scheduler(app):
+#     global flask_app
+#     flask_app = app 
 
-    scheduler = BackgroundScheduler()
+#     scheduler = BackgroundScheduler()
 
-    reminder_hours = [8, 20]
+#     reminder_hours = [8, 20]
 
-    for hour in reminder_hours:
-        scheduler.add_job(
-            send_all_users_pending, 'cron',
-            hour = hour, minute=0
-        )
+#     for hour in reminder_hours:
+#         scheduler.add_job(
+#             send_all_users_pending, 'cron',
+#             hour = hour, minute=0
+#         )
     
-    scheduler.start()
-    return scheduler
+#     scheduler.start()
+#     return scheduler
 

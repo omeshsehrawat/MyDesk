@@ -26,7 +26,7 @@ app.config['MAIL_DEFAULT_SENDER'] = app.config['MAIL_USERNAME']
 
 mail = Mail(app)
 email_scheduler.mail = mail
-email_scheduler.start_scheduler(app)
+# email_scheduler.start_scheduler(app)
 
 # ---------------- AUTH ---------------- #
 
