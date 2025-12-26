@@ -8,6 +8,7 @@ from accessing_data import Accessing_Table_Data
 from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import load_dotenv
 import os
+from threading import Thread
 
 load_dotenv()
 
@@ -131,6 +132,9 @@ def get_tasks():
     )
     return jsonify(tasks)
 
+def send_email_bg(task, date, email):
+    email_scheduler.send_new_task_email(task, date, [email])
+
 
 @app.route("/add_task", methods=["POST"])
 def add_task():
@@ -145,11 +149,10 @@ def add_task():
         session["user_id"]
     )
 
-    email_scheduler.send_new_task_email(
-        data["task"],
-        data["myDate"],
-        [session["email"]]
-    )
+    Thread(
+        target=send_email_bg,
+        args=(data["task"], data["myDate"], session["email"])
+    ).start()
 
     return jsonify({
         "message": "Task Added",
