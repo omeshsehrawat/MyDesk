@@ -46,7 +46,7 @@ def send_new_task_email(task, deadline, recipients):
     )
 
 def send_registration_email(to_email, username, password=None):
-    body = f"Hello {username}, \n\nWelcome to Daily Use App"
+    body = f"Hello {username}, \n\nWelcome to MyDesk App"
     if password:
         body += f"\n\nYour Password is: {password}"
 
