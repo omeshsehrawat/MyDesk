@@ -1,18 +1,37 @@
-from flask_mail import Mail, Message
-from apscheduler.schedulers.background import BackgroundScheduler
-import todo_database
+import os
 import datetime
+import todo_database
 import registration_database
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+from apscheduler.schedulers.background import BackgroundScheduler
 
-mail = None
+SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
+FROM_EMAIL = os.getenv("FROM_EMAIL")
+
+# mail = None
 flask_app = None
 
-# Email helpers
+# Email helpers while using SMTP
+# def send_email(subject, body, recipients):
+#     global flask_app
+#     with flask_app.app_context():
+#         msg = Message(subject=subject, recipients=recipients, body=body)
+#         mail.send(msg)
+
+# CORE SEND EMAIL SENDGRID
 def send_email(subject, body, recipients):
-    global flask_app
-    with flask_app.app_context():
-        msg = Message(subject=subject, recipients=recipients, body=body)
-        mail.send(msg)
+    message = Mail(
+        from_email=FROM_EMAIL,
+        to_emails=recipients,
+        subject=subject,
+        plain_text_content=body
+    )
+    try:
+        sg = SendGridAPIClient(SENDGRID_API_KEY)
+        sg.send(message)
+    except Exception as e:
+        print("SendGrid Error:", e)
 
 def send_new_task_email(task, deadline, recipients):
     message = (
@@ -25,17 +44,17 @@ def send_new_task_email(task, deadline, recipients):
         message,
         recipients
     )
-    
+
 def send_registration_email(to_email, username, password=None):
-    msg = Message(subject="Welcome to Daily Use App",
-                  recipients=[to_email])
-    body = f"Hello {username},\n\nWelcome to Daily Use App!"
-
+    body = f"Hello {username}, \n\nWelcome to Daily Use App"
     if password:
-        body += f"\nYour password is: {password}"
+        body += f"\n\nYour Password is: {password}"
 
-    msg.body = body
-    mail.send(msg)
+    send_email(
+        "Welcome to Daily Use App",
+        body,
+        [to_email]
+    )
 
 def send_pending_tasks_email(user):
     today = datetime.date.today()

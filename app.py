@@ -17,16 +17,19 @@ app.secret_key = os.getenv("SECRET_KEY")
 
 access_data = Accessing_Table_Data()
 
-# ---------------- MAIL CONFIG ---------------- #
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME")
-app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD")
-app.config['MAIL_DEFAULT_SENDER'] = app.config['MAIL_USERNAME']
+# ---------------- MAIL CONFIG WITH SMTP -------------- #
+# app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+# app.config['MAIL_PORT'] = 587
+# app.config['MAIL_USE_TLS'] = True
+# app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME")
+# app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD")
+# app.config['MAIL_DEFAULT_SENDER'] = app.config['MAIL_USERNAME']
 
-mail = Mail(app)
-email_scheduler.mail = mail
+# mail = Mail(app)
+# email_scheduler.mail = mail
+# email_scheduler.start_scheduler(app)
+
+#----------------- MAIL WITH SENDGRID ----------------- #
 email_scheduler.start_scheduler(app)
 
 # ---------------- AUTH ---------------- #
