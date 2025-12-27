@@ -1,82 +1,88 @@
-# 📌 MyDesk – Daily Use Web Application
+# 📘 MyDesk – Daily Use Web Application
 
-MyDesk is a full-stack **Daily Use Web Application** designed to help users manage **tasks (TODOs)**, **expenses**, and **reports**, with **email notifications** and **scheduled reminders**.  
-The application is deployed on **Railway** and uses **SendGrid** for reliable email delivery.
+MyDesk is a full-stack web application designed to help users manage their **daily productivity, academics, and tasks** from a single platform.  
+This project focuses on **real-world deployment challenges, scalability, and system migration**.
 
 ---
 
 ## 🚀 Features
 
-### 🔐 Authentication
-- User registration & login
-- Secure password hashing
-- Session-based authentication
-
-### ✅ TODO Management
-- Add, update, delete tasks
-- Deadline-based task storage
-- Daily task filtering
-- Email notification on task creation
-
-### 💰 Expense Tracker
-- Add & delete expenses
-- Date-wise expense tracking
-- Daily expense overview
-
-### 📊 Reports
-- Generate reports using date ranges
-- Filter data by user and category
+### 📝 Task Management
+- Add, update, and delete daily TODO tasks
+- Set deadlines and task status (pending / completed)
+- Date-wise task filtering
 
 ### 📧 Email Notifications
-- Registration confirmation email
-- Task creation email
-- Scheduled pending task reminders (twice daily)
+- New task creation email
+- User registration email
+- Automated pending task reminders (scheduled)
+
+### 📊 Academic Tools
+#### 🎓 SGPA & CGPA Calculator
+- User selects **number of subjects**
+- Enters **credits and grades**
+- System first calculates **SGPA**
+- Then asks for **previous SGPA values**
+- Computes **final CGPA accurately**
+
+### 💰 Expense Tracker
+- Add daily expenses
+- Date-wise expense tracking
+- Summary reports
+
+---
+
+## 🔁 Project Evolution (Key Migrations)
+
+### 🔹 Deployment
+- Initially deployed on **Render**
+- Faced worker timeouts & SMTP restrictions
+- Migrated to **Railway** for stable production deployment
+
+### 🔹 Email System
+- Started with **SMTP (Gmail)**
+- Failed in cloud environment due to blocked ports
+- Refactored entire email service using **SendGrid API**
+- Implemented verified sender & API-based mailing
+
+### 🔹 Database
+- Initially used **SQLite**
+- Migrated to **Supabase (PostgreSQL)** for:
+  - Cloud persistence
+  - Multi-user scalability
+  - Better reliability
 
 ---
 
 ## 🛠 Tech Stack
 
-### Backend
-- Python
-- Flask
-- Gunicorn
-
-### Database
-- Supabase (PostgreSQL)
-
-### Email Service
-- SendGrid API
-
-### Scheduler
-- APScheduler
-
-### Deployment
-- Railway
+| Layer | Technology |
+|------|-----------|
+| Backend | Flask, Gunicorn |
+| Database | Supabase (PostgreSQL) |
+| Email Service | SendGrid API |
+| Scheduler | APScheduler |
+| Frontend | HTML, CSS, JavaScript |
+| Deployment | Railway |
 
 ---
 
-## 📩 Why SendGrid?
-
-| SMTP (Gmail) | SendGrid |
-|-------------|----------|
-| Blocked on cloud platforms | Cloud-friendly |
-| Causes worker timeout | Non-blocking API |
-| Port restrictions | HTTPS-based |
-| Not production safe | Production ready |
-
-SendGrid ensures **reliable email delivery** without crashing Gunicorn workers on Railway.
+## 🧠 Key Learnings
+- SMTP is **not production-safe** for cloud deployment
+- Importance of **non-blocking email services**
+- Debugging production logs & worker crashes
+- Real DevOps experience: build → break → fix → improve
+- API-based email authentication & sender verification
 
 ---
 
-## ⚙️ Environment Variables
+## 📌 Project Status
+✅ Live & Deployed  
+✅ Email system working in production  
+✅ Database migrated to cloud  
+✅ Academic calculator integrated  
 
-Set the following variables in **Railway → Variables**:
+---
 
-```env
-SECRET_KEY=your_secret_key
-
-SUPABASE_URL=your_supabase_url
-SUPABASE_KEY=your_supabase_key
-
-SENDGRID_API_KEY=your_sendgrid_api_key
-FROM_EMAIL=verified_sender_email@example.com
+## 📎 Author
+**Omesh Sehrawat**  
